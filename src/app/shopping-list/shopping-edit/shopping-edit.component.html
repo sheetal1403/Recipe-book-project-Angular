@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-12">
+        <form (ngSubmit) = onSubmit(f) #f="ngForm">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="name"
+                        name="name"
+                        ngModel
+                        #nameInput="ngModel"
+                        required> 
+                        <small *ngIf="nameInput.invalid && nameInput.touched">Please enter an ingrediant</small>
+                </div>
+                
+
+                <div class="col-md-2">
+                    <label for="amount">Amount</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        id="amount"
+                        name="amount"
+                        ngModel
+                        #amountInput="ngModel"
+                        required
+                        pattern="^[1-9]+[0-9]*$">
+                        <small *ngIf="amountInput.invalid && amountInput.touched">Please enter a valid number</small>  
+                </div>
+
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group">
+                        <button 
+                        type="submit" 
+                        class="btn btn-success"
+                        [disabled] = "f.invalid">{{ editMode? 'Update':'Add'}}</button>
+                        <button 
+                            type="button" 
+                            class="btn btn-danger"
+                            *ngIf="editMode"
+                            (click) = "onDelete()">Delete</button>
+                        <button 
+                            type="button" 
+                            class="btn btn-primary"
+                            [disabled]="!editMode"
+                            (click)="onClear()">Clear</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

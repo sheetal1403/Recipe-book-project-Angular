@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "recipes-project-b2ca6",
+    "recipes": "recipes-project-b2ca6"
+  }
+}
