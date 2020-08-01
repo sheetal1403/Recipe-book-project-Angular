@@ -1,19 +1,20 @@
 <div class="container">
     <div class="row no-gutters">
         <div class="col-md-12">
+            <h3 id="edit-header">Edit your recipe</h3>
             <form [formGroup] = "recipeForm" (ngSubmit)="onSubmit()">
                 <div class="row no-gutters">
-                    <div class="col-md-12">
+                    <div class="col-md-12 button-group">
                         <button class="btn btn-success" type="submit">Save</button>
                         <button class="btn btn-danger" type="button">Cancel</button>
                     </div>
                 </div>
-    
+
                 <div class="row no-gutters">
-                    <div class="col-md-12">
+                    <div class="col-md-12 recipe-edit-form-group">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input 
+                            <label for="name" class="label"><h6>Name</h6></label>
+                            <input
                                 type="text"
                                 id="name"
                                 formControlName = "name"
@@ -21,12 +22,12 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="row no-gutters">
-                    <div class="col-md-12">
+                    <div class="col-md-12 recipe-edit-form-group">
                         <div class="form-group">
-                            <label for="imagePath">Image URL</label>
-                            <input 
+                            <label for="imagePath" class="label"><h6>Image URL</h6></label>
+                            <input
                                 type="text"
                                 id="imagePath"
                                 formControlName="imagePath"
@@ -35,75 +36,76 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="row no-gutters">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <img 
-                                [src]="imagePath.value" 
-                                class="image-responsive"
+                            <img
+                                [src]="imagePath.value"
+                                class="image-responsive label"
                                 style="max-width: 200px;">
                         </div>
                     </div>
                 </div>
-    
+
                 <div class=" row no-gutters">
-                    <div class="col-md-12">
+                    <div class="col-md-12 recipe-edit-form-group">
                         <div class="form-group">
-                            <label for="description">Description</label>
+                            <label for="description" class="label"><h6>Description</h6></label>
                             <textarea
                             type="text"
                             id="description"
                             name="description"
                             formControlName="description"
-                            class="form-control"></textarea> 
-                                
+                            class="form-control"></textarea>
+
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-md-12">
                         <button class="btn btn-primary" (click)=onAddIngred() type="button">Add ingredient</button>
                     </div>
                 </div>
-    
+
                 <div class="row no-gutters">
-                     <div class="col-md-12" formArrayName="ingredients">
-                            <div 
+                     <div class="col-md-12 recipe-edit-form-group" formArrayName="ingredients">
+                            <div
                             class="row"
                             *ngFor="let ingredCtrl of getControls(); let i=index"
                             [formGroupName]=i>
                                 <div class="col-md-8">
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         class="form-control"
                                         formControlName="name">
                                 </div>
                                 <div class="col-md-2">
-                                    <input 
-                                        type="number" 
+                                    <input
+                                        type="number"
                                         class="form-control"
                                         formControlName="amount">
                                 </div>
                                 <div class="col-md-2">
-                                    <button 
+                                    <button
                                     class="btn btn-danger"
                                     type="button"
                                     (click)="onDeleteIngred(i)">X</button>
                                 </div>
                             </div>
 
-                            
-                            
+
+
                         </div>
-                        
+
                     </div>
-                    
-                            
+
+
             </form>
         </div>
     </div>
-    
-    
+
+
 </div>
 
