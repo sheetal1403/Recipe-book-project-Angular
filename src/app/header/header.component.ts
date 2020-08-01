@@ -10,40 +10,41 @@ import { Subscription } from 'rxjs';
 
 })
 
-export class HeaderComponent implements OnInit, OnDestroy{
+export class HeaderComponent implements OnInit, OnDestroy {
 
    userSub: Subscription;
    isAuthenticated = false;
+   public isMenuCollapsed = true;
 
    constructor(private dataStorageService: DataStorageService,
-               private authService: AuthService){}
+               private authService: AuthService) {}
 
-    ngOnInit(){
+    ngOnInit() {
        this.userSub = this.authService.user.subscribe(user => {
             this.isAuthenticated = !!user;
             // console.log(!user);
             // console.log(!!user);
        });
-    }    
+    }
 
     // onSelect(feature:string){
-        
+
     //     this.featureSelected.emit(feature);
     // }
 
-    onSaveRecipes(){
+    onSaveRecipes() {
         this.dataStorageService.storeRecipes();
     }
 
-    onFetchRecipes(){
+    onFetchRecipes() {
         this.dataStorageService.fetchRecipes();
     }
 
-    onLogout(){
+    onLogout() {
         this.authService.logout();
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         this.userSub.unsubscribe();
     }
 

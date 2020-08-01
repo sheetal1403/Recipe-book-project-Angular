@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+/(public)dist
 # Only exists if Bazel was run
 /bazel-out
 
@@ -40,6 +41,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/.firebase
+/.vs
 
 # System Files
 .DS_Store

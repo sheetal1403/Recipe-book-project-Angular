@@ -44,12 +44,12 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     NgbModule,
     HttpClientModule,
     ShoppingListModule
-    
-    
+
+
   ],
-  providers: [ShoppingListService, RecipesService, 
+  providers: [ShoppingListService, RecipesService,
   {
-    provide: HTTP_INTERCEPTORS, 
+    provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
   }

@@ -9,32 +9,32 @@ import { Subscription } from 'rxjs';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
-  
+
 })
 export class ShoppingListComponent implements OnInit {
 
 
   ingredients: Ingredient[] = [];
-  
-  
+
+
   constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.ingredients;
-   
-    
+
+
   }
 
-  onEditItem(i: number){
+  onEditItem(i: number) {
     this.shoppingListService.editingStart.next(i);
     // this.ingredients.splice(i,1);
-    
+
 
   }
 
-  
 
-  
+
+
 
 
 
