@@ -1,37 +1,37 @@
-<div class="list-group" style="width: 450px;">
+<div class="list-group">
     <a routerLinkActive="active" style="cursor: pointer" [routerLink]="['/recipes', id]" class="list-group-item list-group-item-action">
-      <div class="row align-items-center">
-        <div class="col-md-4">
-          <img 
-                src="{{ recipeItem.imagePath}}" 
-                alt="{{ recipeItem.name }}" 
-                class="img-responsive" 
-                style="max-height: 90px;">
+      <div class="row align-items-center no-gutters">
+        <div class="col-md-12 col-lg-4">
+          <img
+                src="{{ recipeItem.imagePath}}"
+                alt="{{ recipeItem.name }}"
+                class="img-responsive"
+                style="max-height: 70px;">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 recipe-info">
           <h5>{{ recipeItem.name }}</h5>
             <p>{{ recipeItem.description }}</p>
         </div>
       </div>
-      
-      
+
+
       <!-- <div class="clearfix">
           <span class="float-right">
-            <img 
-                src="{{ recipeItem.imagePath}}" 
-                alt="{{ recipeItem.name }}" 
-                class="img-responsive" 
+            <img
+                src="{{ recipeItem.imagePath}}"
+                alt="{{ recipeItem.name }}"
+                class="img-responsive"
                 style="max-height: 70px;">
         </span>
           <span class="float-left">
             <h5>{{ recipeItem.name }}</h5>
             <p>{{ recipeItem.description }}</p>
           </span>
-          
+
         </div> -->
-        
-        
-        
-        
+
+
+
+
       </a>
 </div>

@@ -1,0 +1,14 @@
+.recipe-info{
+  padding-top: 15px;
+}
+
+
+@media(min-width: 992px){
+  .recipe-info{
+    padding: 15px 0 0 10px;
+  }
+}
+
+.list-group{
+  padding: 10px 10px 10px 0;
+}
