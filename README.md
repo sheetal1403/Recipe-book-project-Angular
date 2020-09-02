@@ -1,27 +1,20 @@
-# Project
+## Project description
+This project displays a list of recipes, with a picture, method and ingredients used and allows the user to edit a recipe, save the information and also to create a shopping list.
+It is built using Angular 9 framework and makes use of angular routing, feature modules, lazy loading, template driven and reactive forms. Firebase is used for hosting, authentication and database.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+## Preview
+https://recipes-project-b2ca6.web.app/
 
-## Development server
+## Snapshots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Main page
+![Main page](website-images/MainPage.PNG)
 
-## Code scaffolding
+### Display Single Recipe
+![Main page](website-images/SingleRecipePage.PNG)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Shopping list page
+![Main page](website-images/ListPage.PNG)
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Login page
+![Main page](website-images/AuthPage.PNG)
