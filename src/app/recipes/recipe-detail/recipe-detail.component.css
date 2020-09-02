@@ -3,7 +3,7 @@
 }
 
 .ingredient-list li{
-  width: 50%;
+  width: 100%;
 }
 
 .recipe-description{
@@ -12,7 +12,14 @@
 }
 
 .recipe-description div:first-child{
-  border: 1px solid #DCDCDC;
   border-radius: 5px;
-  padding: 10px 0;
+}
+
+.recipe-description div div{
+  border: 1px solid #DCDCDC;
+  padding: 0.75rem 1.25rem;
+}
+
+.image{
+  border-radius: 10px;
 }

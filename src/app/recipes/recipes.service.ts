@@ -3,7 +3,9 @@ import { EventEmitter, Output } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 
-export class RecipesService{
+export class RecipesService {
+
+
 
   recipesChanged = new Subject<Recipe[]>();
 
@@ -12,7 +14,7 @@ export class RecipesService{
                'Lorem Ipsum is simply dummyuuuuuuuuuuuuu',
                'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_1280.jpg',
                [
-                 new Ingredient('apples',4), new Ingredient('bread',2)
+                 new Ingredient('apples', 4), new Ingredient('bread', 2)
                ])
 
               //  new Recipe('TestRecipe2',
@@ -24,47 +26,45 @@ export class RecipesService{
 
   ];
 
-    getRecipes(){
-      return this.recipes;
-    };
+    @Output() onRecipeSelected = new Subject<Recipe>();
 
-    setRecipes(recipes: Recipe[]){
+    selectedRecipe: Recipe;
+
+    getRecipes() {
+      return this.recipes;
+    }
+    setRecipes(recipes: Recipe[]) {
       this.recipes = recipes;
       console.log(this.recipes);
       this.recipesChanged.next(this.recipes);
     }
 
-    getRecipe(index: number){
+    getRecipe(index: number) {
       return this.recipes[index];
-    };
-
-    updateRecipe(index: number, recipe: Recipe){
+    }
+    updateRecipe(index: number, recipe: Recipe) {
       const allRecipes = this.getRecipes();
       allRecipes[index] = recipe;
     }
 
-    addNewRecipe(recipe: Recipe){
+    addNewRecipe(recipe: Recipe) {
       const allRecipes = this.getRecipes();
       allRecipes.push(recipe);
       this.recipesChanged.next(allRecipes);
     }
 
-    deleteRecipe(index:number){
+    deleteRecipe(index: number) {
       const allRecipes = this.getRecipes();
-      allRecipes.splice(index,1);
+      allRecipes.splice(index, 1);
 
     }
 
-    deleteIngred(recipeIndex:number,ingredientIndex:number){
+    deleteIngred(recipeIndex: number, ingredientIndex: number) {
       const recipe = this.getRecipe(recipeIndex);
-      recipe.ingredients.splice(ingredientIndex,1);
+      recipe.ingredients.splice(ingredientIndex, 1);
       console.log(recipe);
     }
 
-    @Output() onRecipeSelected = new Subject<Recipe>();
 
-    selectedRecipe: Recipe;
 
-    
-        
       }

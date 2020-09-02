@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /(public)dist
+/(public)/dist
 # Only exists if Bazel was run
 /bazel-out
 
