@@ -57,11 +57,6 @@
         <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" routerLinkActive="active" (click)="isMenuCollapsed = true" (click)="onLogout()" style="cursor: pointer;">Log out</a>
         </li>
-        <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link" routerLinkActive="active" (click)="isMenuCollapsed = true" (click)="onSaveRecipes()" style="cursor: pointer;">
-            Save Changes
-          </a>
-        </li>
       </ul>
 
       <!-- <ul class="navbar-nav nav-right">

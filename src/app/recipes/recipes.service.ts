@@ -1,10 +1,12 @@
 import { Recipe } from './recipe.model';
-import { EventEmitter, Output } from '@angular/core';
+import { EventEmitter, Output, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 
-export class RecipesService {
 
+@Injectable({providedIn: 'root'})
+
+export class RecipesService {
 
 
   recipesChanged = new Subject<Recipe[]>();
@@ -30,12 +32,12 @@ export class RecipesService {
 
     selectedRecipe: Recipe;
 
+
     getRecipes() {
       return this.recipes;
     }
     setRecipes(recipes: Recipe[]) {
       this.recipes = recipes;
-      console.log(this.recipes);
       this.recipesChanged.next(this.recipes);
     }
 

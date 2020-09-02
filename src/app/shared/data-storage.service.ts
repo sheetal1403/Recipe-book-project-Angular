@@ -7,32 +7,30 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable({providedIn: 'root'})
 
-export class DataStorageService{
-    constructor(private http: HttpClient, 
+export class DataStorageService {
+    constructor(private http: HttpClient,
                 private recipesService: RecipesService,
-                private authService: AuthService){
+                private authService: AuthService) {
 
     }
 
-    storeRecipes(){
+    storeRecipes() {
         const recipes = this.recipesService.getRecipes();
-        console.log(recipes);
         this.http.put('https://recipes-project-b2ca6.firebaseio.com/recipes.json', recipes)
-            .subscribe(response => console.log(response));
+            .subscribe(response => null);
     }
 
-    fetchRecipes(){
-        
+    fetchRecipes() {
+
             return this.http.get<Recipe[]>('https://recipes-project-b2ca6.firebaseio.com/recipes.json')
             .pipe(map(recipes => {
                 return recipes.map(recipe => {
-                    return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients: []}
+                    return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
                 } );
             })
             )
-            .subscribe(recipes => 
-                {
-                    
+            .subscribe(recipes => {
+
                     this.recipesService.setRecipes(recipes);
                 });
     }

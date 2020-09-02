@@ -33,13 +33,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //     this.featureSelected.emit(feature);
     // }
 
-    onSaveRecipes() {
-        this.dataStorageService.storeRecipes();
-    }
+    // REMOVED from the header
+    // onSaveRecipes() {
+    //     this.dataStorageService.storeRecipes();
+    // }
 
-    onFetchRecipes() {
-        this.dataStorageService.fetchRecipes();
-    }
+    // onFetchRecipes() {
+    //     this.dataStorageService.fetchRecipes();
+    // }
 
     onLogout() {
         this.authService.logout();

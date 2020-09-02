@@ -22,7 +22,6 @@ export class RecipeListComponent implements OnInit {
     this.recipesService.recipesChanged.subscribe(
       recipes => {
         this.recipes = recipes;
-        console.log(this.recipes);
       }
     );
     // this.recipes = this.recipesService.getRecipes(); --> This is locally stored data

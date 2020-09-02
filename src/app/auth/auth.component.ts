@@ -9,29 +9,28 @@ import { Observable } from 'rxjs';
     templateUrl: './auth.component.html'
 })
 
-export class AuthComponent{ 
+export class AuthComponent {
 
-    
+
 
     constructor(private authService: AuthService,
-                private router: Router){}
+                private router: Router) {}
     isLoginMode = true;
     isLoading = false;
-    error:string = null;
+    error: string = null;
 
-    onSwitchMode(){
+    onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
     }
 
-    onSubmit(authForm: NgForm){
+    onSubmit(authForm: NgForm) {
         // console.log(authForm.value.email);
         let authObs: Observable<AuthResponse>;
 
-        if(this.isLoginMode){
-            console.log('login')
+        if (this.isLoginMode) {
             this.isLoading = true;
             authObs = this.authService.login(authForm.value.email, authForm.value.password);
-        }else{
+        } else {
             console.log('signup');
             this.isLoading = true;
             authObs = this.authService.signup(authForm.value.email, authForm.value.password);
@@ -39,7 +38,6 @@ export class AuthComponent{
 
         authObs.subscribe(
             responseData => {
-                console.log(responseData);
                 this.router.navigate(['/recipes']);
                 this.isLoading = false;
             },
@@ -49,13 +47,13 @@ export class AuthComponent{
                 this.error = errorMsg;
                 this.isLoading = false;
             }
-        )
+        );
 
         authForm.reset();
     }
 
-    closeErrorBox(){
-        this.error=null;
+    closeErrorBox() {
+        this.error = null;
     }
 
 }
